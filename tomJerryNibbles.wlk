@@ -3,6 +3,8 @@ object tom {
     var energia = 50
     var distanciaRecorrida = 0
 
+    method energia() {return energia}
+
     method comer(unRaton) {
       energia = energia + 12 + unRaton.peso()
       ultimoRatonComido = unRaton
@@ -15,6 +17,18 @@ object tom {
 
     method velocidadMaxima() {
         return 5 + energia/10 
+    }
+
+   //parte 2
+    method puedeCazar(distancia) {
+        return energia >= distancia / 2
+    }
+
+    method cazar(unRaton, unaDistancia) {
+        if (self.puedeCazar(unaDistancia)) {
+            self.correr(unaDistancia) //self: tom
+            self.comer(unRaton)
+        } 
     }
 
 }
